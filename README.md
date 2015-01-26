@@ -2,29 +2,9 @@
 
 A Dockerfile that produces a container that will run [MariaDB][mariadb] ,
 a drop-in replacement for MySQL.
+this dockerfile is based on `paintedfox/mariadb`
 
 [mariadb]: https://mariadb.org/
-
-## Image Creation
-
-This example creates the image with the tag `paintedfox/mariadb`, but you can
-change this to use your own username.
-
-```
-$ docker build -t="paintedfox/mariadb" .
-```
-
-Alternately, you can run the following if you have *make* installed...
-
-```
-$ make
-```
-
-You can also specify a custom docker username like so:
-
-```
-$ make DOCKER_USER=paintedfox
-```
 
 ## Container Creation / Running
 
@@ -48,24 +28,7 @@ $ docker run -d -name="mariadb" \
              -v /tmp/mariadb:/data \
              -e USER="root" \
              -e PASS="$(pwgen -s -1 16)" \
-             paintedfox/mariadb
-```
-
-Alternately, you can run the following if you have *make* installed...
-
-``` shell
-$ make run
-```
-
-You can also specify a custom port to bind to on the host, a custom data
-directory, and the root username and password on the host like so:
-
-``` shell
-$ sudo mkdir -p /srv/docker/mariadb
-$ make run PORT=127.0.0.1:3306 \
-           DATA_DIR=/srv/docker/mariadb \
-           USER=root \
-           PASS=$(pwgen -s -1 16)
+             sudokeys/mariadb
 ```
 
 ## Connecting to the Database
