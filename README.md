@@ -2,7 +2,8 @@
 
 A Dockerfile that produces a container that will run [MariaDB][mariadb] ,
 a drop-in replacement for MySQL.
-this dockerfile is based on `paintedfox/mariadb`
+
+This dockerfile is based on `paintedfox/mariadb`
 
 [mariadb]: https://mariadb.org/
 
